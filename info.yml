@@ -1,0 +1,17 @@
+---
+- name: Get server information
+  hosts: all
+  gather_facts: true
+
+  tasks:
+    - name: Display hostname
+      debug:
+        var: ansible_hostname
+
+    - name: Display operating system
+      debug:
+        var: ansible_distribution
+
+    - name: Display IP address
+      debug:
+        var: ansible_default_ipv4.address
