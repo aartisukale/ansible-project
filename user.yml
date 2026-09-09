@@ -1,0 +1,10 @@
+---
+- name: Create user on managed server
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Create ansibleuser
+      user:
+        name: ansibleuser
+        state: present
