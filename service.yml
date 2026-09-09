@@ -1,0 +1,11 @@
+---
+- name: Manage SSH service
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Ensure SSH service is running
+      systemd:
+        name: sshd
+        state: started
+        enabled: true
