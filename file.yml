@@ -1,0 +1,21 @@
+---
+- name: Manage files and directories
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Create application directory
+      file:
+        path: /opt/myapp
+        state: directory
+        owner: root
+        group: root
+        mode: '0755'
+
+    - name: Create application configuration file
+      file:
+        path: /opt/myapp/app.conf
+        state: touch
+        owner: root
+        group: root
+        mode: '0644'
