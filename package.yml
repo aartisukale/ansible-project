@@ -1,0 +1,10 @@
+---
+- name: Install required packages
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Install httpd
+      dnf:
+        name: httpd
+        state: present
