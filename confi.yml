@@ -1,0 +1,20 @@
+---
+- name: Configure SSH
+  hosts: all
+  become: yes
+
+  tasks:
+
+    - name: Configure MaxAuthTries
+      copy:
+        content: |
+          MaxAuthTries 4
+        dest: /etc/ssh/sshd_config.d/ansible.conf
+      notify: Restart SSH
+
+  handlers:
+
+    - name: Restart SSH
+      systemd:
+        name: sshd
+        state: restarted
